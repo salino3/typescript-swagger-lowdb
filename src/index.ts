@@ -4,14 +4,9 @@
 // npx tsc --init
 
 import app from "./app";
-import cors from 'cors';
-import morgan from 'morgan';
 
 
-console.log("Hello world!");
+app.listen(app.get('port'));
 
-app.listen(3000);
+console.log("Server listening on port: " + app.get("port"));
 
-console.log("Server listening on port: " + 3000);
-
-app
