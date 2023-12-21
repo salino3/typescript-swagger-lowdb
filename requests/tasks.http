@@ -1,0 +1,30 @@
+
+
+GET http://localhost:3000/tasks
+
+
+###
+
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+    "name": "Create web site",
+    "description": "Using Dart"
+}
+
+###
+
+ 
+GET http://localhost:3000/tasks/bf5481bb-54cc-4cdf-8f28-cf2bf876f97b
+
+###
+
+
+ 
+DELETE http://localhost:3000/tasks/bf5481bb-54cc-4cdf-8f28-cf2bf876f97
+
+
+
+
+

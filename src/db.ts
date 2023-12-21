@@ -5,7 +5,7 @@ export type Task = {
  id: string;
  name: string;
  description: string;
-};
+}; 
 
 type Schema = {
  tasks: Task[];
