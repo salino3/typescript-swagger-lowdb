@@ -71,7 +71,7 @@ export const deleteTask: Handler = (req: Request, res: Response): void => {
     .remove({ id: req.params.id })
     .write();
 
-  res.status(200).json(deletedTask);
+  res.status(200).json(deletedTask[0]);
 };
 
 
