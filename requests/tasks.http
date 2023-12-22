@@ -34,9 +34,13 @@ Content-Type: application/json
     "description": "Using React"
 }
 
-### Update a Task
+### Count Tasks
 
 GET http://localhost:3000/tasks/count
 
 
+### Count Tasks in 'curl'
 
+curl -X 'GET' \
+  'http://localhost:3000/tasks/count' \
+  -H 'accept: text/plain'
