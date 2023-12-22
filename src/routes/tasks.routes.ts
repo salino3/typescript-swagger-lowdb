@@ -33,7 +33,21 @@ const router = Router();
  *        id: gQBOyGbxcQy6tEp0aZ78X
  *        name: My first Task
  *        description: I have to do Something
- *
+ *  parameters:
+ *    taskId:
+ *      in: path
+ *      name: id
+ *      required: true 
+ *      schema:
+ *        type: string
+ *      description: the task id
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Tasks
+ *   description: Tasks endpoint
  */
 
 /**
@@ -41,6 +55,7 @@ const router = Router();
  * /tasks:
  *  get:
  *    summary: Retorna una lista de tareas
+ *    tags: [Tasks]
  *    responses:
  *      200:
  *        description: La lista de tareas
@@ -59,6 +74,7 @@ router.get("/tasks", getTasks);
  * /tasks/count:
  *  get: 
  *    summary: Get total task count
+ *    tags: [Tasks]
  *    responses:
  *      200:
  *       description: Totla number of tasks
@@ -71,7 +87,55 @@ router.get("/tasks", getTasks);
  */
 router.get("/tasks/count", count);
 
+
+/**
+ * @swagger
+ * /tasks:
+ *  post:
+ *    summary: Create a new Task
+ *    tags: [Tasks]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Task'
+ *    responses:
+ *          200:
+ *            description: The task is succesfully created
+ *            content:
+ *              application/json:
+ *                schema:
+ *                  $ref: '#components/schema/Task'
+ *          500: 
+ *            description: Some server error
+ */
+
 router.post("/tasks", createTask);
+
+
+/**
+ * @swagger
+ * /tasks/{id}:
+ *   get:
+ *     summary: Get a Task by 'id'
+ *     tags: [Tasks]
+ *     parameters:
+ *       - $ref: '#/components/parameters/taskId'
+ *     responses:
+ *       200:
+ *         description: the Task was found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#components/schema/Task'
+ *       404:
+ *         description:  the task was not found
+ *         content:
+ *           application/json:
+ *  
+ *           
+ */
 
 router.get("/tasks/:id", getTask);
 
