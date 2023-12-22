@@ -45,6 +45,15 @@ export const getTask: Handler = (req: Request, res: Response): void => {
 };
 
 
+export const count: Handler = (req: Request, res: Response): void => {
+
+  const taskLength = getConnection().get('tasks').value().length;
+
+ res.json(taskLength);
+
+};
+
+
 export const deleteTask: Handler = (req: Request, res: Response): void => {
 
   const taskFound = getConnection()
@@ -64,5 +73,25 @@ export const deleteTask: Handler = (req: Request, res: Response): void => {
 
   res.status(200).json(deletedTask);
 };
+
+
+export const updateTask: Handler = (req: Request, res: Response): void => {
+  const taskFound = getConnection()
+    .get("tasks")
+    .find({ id: req.params.id })
+    .value();
+
+  if (!taskFound) {
+    res.status(404).json({ msg: "Task not found" });
+    return;
+  };
+
+  const updatedTask = getConnection().get('tasks').find({id: req.params.id}).assign(req.body).write();
+
+  res.status(200).json(updatedTask);
+};
+
+
+
 
 

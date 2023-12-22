@@ -1,30 +1,42 @@
 
+### Get all Task
 
 GET http://localhost:3000/tasks
 
 
-###
+### Create a Task
 
 POST http://localhost:3000/tasks
 Content-Type: application/json
 
 {
     "name": "Create web site",
-    "description": "Using Dart"
+    "description": "Using React"
 }
 
-###
 
- 
-GET http://localhost:3000/tasks/bf5481bb-54cc-4cdf-8f28-cf2bf876f97b
+### Get a Task
 
-###
+GET http://localhost:3000/tasks/f664f305-0aff-4621-bf43-2ad17f5e1e4b
 
-
+### Delete a Task
  
 DELETE http://localhost:3000/tasks/bf5481bb-54cc-4cdf-8f28-cf2bf876f97
 
 
+### Update a Task
+
+PUT http://localhost:3000/tasks/f664f305-0aff-4621-bf43-2ad17f5e1e4b
+Content-Type: application/json
+
+{
+    "name": "Create my web site",
+    "description": "Using React"
+}
+
+### Update a Task
+
+GET http://localhost:3000/tasks/count
 
 
 
